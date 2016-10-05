@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+    web:
+      build: .
+      ports:
+        - "5000:5000"
+      links:
+        - db
+    db:
+      hostname: mysqlserver
+      image: mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: mysql789
+        MYSQL_DATABASE: Test
+      volumes:
+        - /var/lib/mysql
+
+ 
